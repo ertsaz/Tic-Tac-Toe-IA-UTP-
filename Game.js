@@ -8,13 +8,16 @@ function setup() {
     estadoDelTablero = new EstadoDelTablero(1);
 }
 
-// DESCRIPCION : funcion que dibuja el tablero del juego en la pagina web
-function draw(){
-    
-    estadoDelTablero.Mostrar()
-}
-
 // DESCRIPCION: En espera por la accion de un jugador sobre el area
 function mousePressed() {
     estadoDelTablero.mousePressed()
 }
+// DESCRIPCION : funcion que dibuja el tablero del juego en la pagina web
+function draw(){
+    if (isloop)
+        //if (estadoDelTablero.turn == 1)
+            // llamar a la IA
+    estadoDelTablero.Mostrar()
+}
+
+
