@@ -10,6 +10,49 @@ class Tablero {
         this.h = height / 3;
     }
 
+    comprobarTres(a, b, c) {
+        return a == b && b == c && a != '';
+    }
+
+    quienGana() {
+        let ganador = null;
+        for (let i = 0; i < 3; i++) {
+            if (this.comprobarTres(this.tablero[i][0], this.tablero[i][1], this.tablero[i][2])) {
+                ganador = this.tablero[i][0];
+            }
+        }
+
+        // Vertical
+        for (let i = 0; i < 3; i++) {
+            if (this.comprobarTres(this.tablero[0][i], this.tablero[1][i], this.tablero[2][i])) {
+                ganador = this.tablero[0][i];
+            }
+        }
+
+        // Diagonal
+        if (this.comprobarTres(this.tablero[0][0], this.tablero[1][1], this.tablero[2][2])) {
+            ganador = this.tablero[0][0];
+        }
+        if (this.comprobarTres(this.tablero[2][0], this.tablero[1][1], this.tablero[0][2])) {
+            ganador = this.tablero[2][0];
+        }
+
+        let espaciosVacios = 0;
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (this.tablero[i][j] == '') {
+                    espaciosVacios++;
+                }
+            }
+        }
+
+        if (ganador == null && espaciosVacios == 0) {
+            return 'TIE';
+        } else {
+            return ganador;
+        }
+    }
+
     Mostrar() {
         background(255);
         strokeWeight(4);
@@ -30,7 +73,7 @@ class Tablero {
                 let yr = this.h / 4;
 
                 if (this.tablero[i][j] == 'X') {
-                    
+
                     line(x - xr, y - yr, x + xr, y + yr);
                     line(x + xr, y - yr, x - xr, y + yr);
                 }
@@ -40,5 +83,5 @@ class Tablero {
                 }
             }
         }
-    }   
+    }
 }
