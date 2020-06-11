@@ -47,6 +47,19 @@ class EstadoDelTablero {
     //DESCRIPCION: Metodo que muestra el tablero actual con las X y O de haber
     Mostrar() {
         background(255);
-        this.tablero.Mostrar()
+        this.tablero.Mostrar();
+        let ganadorP = createP('');
+        this.ganador = this.tablero.quienGana();
+        if (this.ganador) {
+            if (this.ganador == 'TIE')
+                ganadorP.html(this.ganador);
+            else {
+                if (this.ganador == 'X')
+                    ganadorP.html('Ganaste')
+                else
+                    ganadorP.html('La IA Gano')
+            }
+            isloop = false
+        }
     }
 }
