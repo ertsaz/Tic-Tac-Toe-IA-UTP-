@@ -2,7 +2,7 @@ class Tablero {
     constructor() {
 
         this.tablero = [
-            ['O', 'X', ''],
+            ['', '', ''],
             ['', '', ''],
             ['', '', '']
         ];
