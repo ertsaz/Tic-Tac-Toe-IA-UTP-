@@ -47,7 +47,7 @@ class Tablero {
         }
 
         if (ganador == null && espaciosVacios == 0) {
-            return 'TIE';
+            return 'tie';
         } else {
             return ganador;
         }

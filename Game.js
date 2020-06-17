@@ -1,5 +1,5 @@
 let estadoDelTablero;
-let isloop = true
+let continua = true
 // DESCRITCION: Crea el espacio de trabajo desde p5.js 
 function setup() {
     createCanvas(400, 400);
@@ -13,11 +13,12 @@ function mousePressed() {
     estadoDelTablero.mousePressed()
 }
 // DESCRIPCION : funcion que dibuja el tablero del juego en la pagina web
-function draw(){
-    if (isloop)
-        //if (estadoDelTablero.turn == 1)
-            // llamar a la IA
-    estadoDelTablero.Mostrar()
+function draw() {
+    if (continua)
+        estadoDelTablero.Mostrar()
+    if (continua)
+        if (estadoDelTablero.turno == 1)
+            estadoDelTablero.movimientoIA()
 }
 
 
